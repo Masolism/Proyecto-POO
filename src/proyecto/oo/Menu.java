@@ -55,6 +55,7 @@ public class Menu {
                         menuPerimetros.mostrarMenuPerimetros();
                         break;
                     case 3:
+                        MenuEstadistica.mostrarMenu();
                         break;
                     case 4:
                         probarConjeturas ();
