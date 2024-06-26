@@ -4,6 +4,8 @@
  */
 package proyecto.oo;
 
+import java.io.IOException;
+
 /**
  *
  * @author gsoesqui
@@ -13,8 +15,11 @@ public class ProyectoOO {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        System.out.println("test");
+    public static void main(String[] args) throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+        Menu menu = new Menu();
+        menu.mostrarMenu();
     }
     
 }
