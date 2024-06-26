@@ -16,10 +16,7 @@ public class Rombo extends Figura2D {
         return nombre;
     }
 
-    @Override
-    public double calcularArea() {
-        return (diagonal1 * diagonal2) / 2;
-    }
+
 
     @Override
     public double calcularPerimetro() {

@@ -21,10 +21,6 @@ public class Trapecio extends Figura2D {
         return nombre;
     }
 
-    @Override
-    public double calcularArea() {
-        return ((baseMayor + baseMenor) * altura) / 2;
-    }
 
     @Override
     public double calcularPerimetro() {

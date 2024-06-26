@@ -19,13 +19,6 @@ public class Triangulo extends Figura2D {
     
 
     @Override
-    public double calcularArea() {
-        // Usar la fórmula de Herón para el área del triángulo
-        double s = (lado1 + lado2 + lado2) / 2;
-        return Math.sqrt(s * (s - lado1) * (s - lado2) * (s - lado3));
-    }
-
-    @Override
     public double calcularPerimetro() {
         return lado1 + lado2 + lado3;
     }

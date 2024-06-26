@@ -14,10 +14,6 @@ public class Rectangulo extends Figura2D {
         return nombre;
     }
 
-    @Override
-    public double calcularArea() {
-        return largo * ancho;
-    }
 
     @Override
     public double calcularPerimetro() {

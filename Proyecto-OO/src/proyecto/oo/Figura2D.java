@@ -11,7 +11,5 @@ public abstract class Figura2D {
         return nombre;
     }
 
-    public abstract double calcularArea();
-
     public abstract double calcularPerimetro();
 }

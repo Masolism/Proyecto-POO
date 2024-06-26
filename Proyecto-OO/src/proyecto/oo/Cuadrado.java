@@ -14,11 +14,6 @@ public class Cuadrado extends Figura2D {
 
 
     @Override
-    public double calcularArea() {
-        return lado * lado;
-    }
-
-    @Override
     public double calcularPerimetro() {
         return 4 * lado;
     }

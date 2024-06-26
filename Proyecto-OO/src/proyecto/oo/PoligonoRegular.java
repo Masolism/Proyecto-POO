@@ -16,12 +16,6 @@ public class PoligonoRegular extends Figura2D {
 
 
     @Override
-    public double calcularArea() {
-        double apotema = longitudLado / (2 * Math.tan(Math.PI / numeroLados));
-        return (calcularPerimetro() * apotema) / 2;
-    }
-
-    @Override
     public double calcularPerimetro() {
         return numeroLados * longitudLado;
     }
