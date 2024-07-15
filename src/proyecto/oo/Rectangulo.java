@@ -10,11 +10,6 @@ public class Rectangulo extends Figura2D {
         this.ancho = ancho;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-
     @Override
     public double calcularPerimetro() {
         return 2 * (largo + ancho);

@@ -17,11 +17,6 @@ public class Trapecio extends Figura2D {
         this.lado2 = lado2;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-
     @Override
     public double calcularPerimetro() {
         return baseMayor + baseMenor + lado1 + lado2;

@@ -8,10 +8,6 @@ public class Circulo extends Figura2D {
         this.radio = radio;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
     @Override
     public double calcularPerimetro() {
         return 2 * Math.PI * radio;

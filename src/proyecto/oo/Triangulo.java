@@ -12,12 +12,6 @@ public class Triangulo extends Figura2D {
         this.lado3 = lado3;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    
-
     @Override
     public double calcularPerimetro() {
         return lado1 + lado2 + lado3;

@@ -31,7 +31,7 @@ public class MenuPerimetros {
             tipoFigura = scanner.nextInt();
             scanner.nextLine();
 
-            Figura2D figuraGeometrica = null;
+            InterfazCalcularPerimetro figuraGeometrica = null;;
 
             switch (tipoFigura) {
                 case 1:
@@ -101,7 +101,9 @@ public class MenuPerimetros {
                     break;
             }
             if (figuraGeometrica != null) {
-                Imprimir.imprimirPerimetro(figuraGeometrica);
+                String resultado = Imprimir.imprimirPerimetro(figuraGeometrica);
+                out.println(resultado);
+                out.println();
             }
         } else {
             out.println("\n¡Por favor, ingrese un número entero correspondiente a una opción del menú!\n");

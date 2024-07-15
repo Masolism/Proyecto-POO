@@ -6,10 +6,10 @@ public class Imprimir {
 
     static PrintStream out = System.out;
 
-    public static void imprimirPerimetro(Figura2D figura) {
+    public static String imprimirPerimetro(InterfazCalcularPerimetro figura) {
         String resultadoFormateado = String.format("%.2f", figura.calcularPerimetro());
-        out.println("El perímetro de " + figura.getNombre() + " es: " + resultadoFormateado);
-        out.println();
+        return "El perímetro de " + figura.getNombre() + " es: " + resultadoFormateado;
+        
 
     }
 

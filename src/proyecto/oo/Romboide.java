@@ -11,11 +11,6 @@ public class Romboide extends Figura2D {
         this.altura = altura;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-
     @Override
     public double calcularPerimetro() {
         return 2 * (base + altura);

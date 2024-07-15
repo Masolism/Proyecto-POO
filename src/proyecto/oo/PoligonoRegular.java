@@ -10,11 +10,6 @@ public class PoligonoRegular extends Figura2D {
         this.longitudLado = longitudLado;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-
     @Override
     public double calcularPerimetro() {
         return numeroLados * longitudLado;

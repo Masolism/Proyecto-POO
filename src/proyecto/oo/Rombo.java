@@ -12,12 +12,6 @@ public class Rombo extends Figura2D {
         this.diagonal2 = diagonal2;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-
-
     @Override
     public double calcularPerimetro() {
         return 4 * lado;
