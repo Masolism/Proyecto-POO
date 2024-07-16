@@ -63,7 +63,7 @@ public class MenuPerimetros {
                 case 5:
                     out.print("Ingrese el lado del rombo: ");
                     double ladoRombo = scanner.nextDouble();
-                    figuraGeometrica = new Rombo(ladoRombo, 0, 0, "Rombo");
+                    figuraGeometrica = new Rombo(ladoRombo, "Rombo");
                     break;
                 case 6:
                     out.print("Ingrese la base del romboide: ");
@@ -81,7 +81,7 @@ public class MenuPerimetros {
                     double ladoA = scanner.nextDouble();
                     out.print("Ingrese la longitud del otro lado: ");
                     double ladoB = scanner.nextDouble();
-                    figuraGeometrica = new Trapecio(baseMayor, baseMenor, 0, ladoA, ladoB, "Trapecio");
+                    figuraGeometrica = new Trapecio(baseMayor, baseMenor, ladoA, ladoB, "Trapecio");
                     break;
                 case 8:
                     out.print("Ingrese el número de lados del polígono: ");

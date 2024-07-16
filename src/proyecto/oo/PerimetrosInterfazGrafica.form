@@ -679,7 +679,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ingrese el n&#xfa;mero de lados del pol&#xed;gono:"/>
+            <Property name="text" type="java.lang.String" value="Ingrese la longitud de uno de los lados:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="inputPoligono1">
@@ -725,7 +725,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ingrese la longitud de uno de los lados:"/>
+            <Property name="text" type="java.lang.String" value="Ingrese el n&#xfa;mero de lados del pol&#xed;gono:"/>
           </Properties>
         </Component>
       </SubComponents>

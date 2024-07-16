@@ -4,7 +4,10 @@
  */
 package proyecto.oo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
 
@@ -575,7 +578,7 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
 
         dialogPoligonoRegular.setSize(new java.awt.Dimension(800, 500));
 
-        jLabel11.setText("Ingrese el número de lados del polígono:");
+        jLabel11.setText("Ingrese la longitud de uno de los lados:");
 
         inputPoligono1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -613,7 +616,7 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
 
         jLabel12.setText("Ingrese el nombre del polígono:");
 
-        jLabel13.setText("Ingrese la longitud de uno de los lados:");
+        jLabel13.setText("Ingrese el número de lados del polígono:");
 
         javax.swing.GroupLayout dialogPoligonoRegularLayout = new javax.swing.GroupLayout(dialogPoligonoRegular.getContentPane());
         dialogPoligonoRegular.getContentPane().setLayout(dialogPoligonoRegularLayout);
@@ -819,6 +822,17 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         dialogAtras.setVisible(true);
+        this.dispose();  
+
+        Timer timer = new Timer(2000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        timer.setRepeats(false);
+        timer.start();
+
     }//GEN-LAST:event_atrasActionPerformed
 
     private void trianguloButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trianguloButton2ActionPerformed
@@ -940,7 +954,32 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRectangulo2ActionPerformed
 
     private void calcularRectanguloButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularRectanguloButton2ActionPerformed
-        // TODO add your handling code here:
+        String inputText1 = inputRectangulo1.getText().trim();
+        String inputText2 = inputRectangulo2.getText().trim();
+
+        if (inputText1.isEmpty() || inputText2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese ambos lados del rectángulo.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            double lado1 = Double.parseDouble(inputText1);
+            double lado2 = Double.parseDouble(inputText2);
+
+            if (lado1 <= 0 || lado2 <= 0) {
+                JOptionPane.showMessageDialog(this, "Ambos lados del rectángulo deben ser mayores que cero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Rectangulo rectangulo = new Rectangulo(lado1, lado2, "Rectángulo");
+
+            String resultado = Imprimir.imprimirPerimetro(rectangulo);
+
+            resultadoRectangulo.setText(resultado);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese números válidos para los lados del rectángulo.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_calcularRectanguloButton2ActionPerformed
 
     private void inputRectangulo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRectangulo1ActionPerformed
@@ -952,7 +991,30 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRomboActionPerformed
 
     private void calcularRomboButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularRomboButtonActionPerformed
-        // TODO add your handling code here:
+        String inputText = inputRombo.getText().trim();
+
+        if (inputText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese el lado del rombo.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            double lado = Double.parseDouble(inputText);
+
+            if (lado <= 0) {
+                JOptionPane.showMessageDialog(this, "El lado del rombo debe ser mayor que cero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Rombo rombo = new Rombo(lado, "Rombo");
+
+            String resultado = Imprimir.imprimirPerimetro(rombo);
+
+            resultadoRombo.setText(resultado);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido para el lado del rombo.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_calcularRomboButtonActionPerformed
 
     private void inputRomboide1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRomboide1ActionPerformed
@@ -964,7 +1026,32 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_inputRomboide2ActionPerformed
 
     private void calcularRomboideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularRomboideButtonActionPerformed
-        // TODO add your handling code here:
+        String inputText1 = inputRomboide1.getText().trim();
+        String inputText2 = inputRomboide2.getText().trim();
+
+        if (inputText1.isEmpty() || inputText2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Tiene que ingresar la longitud y ancho del romboide.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            double lado1 = Double.parseDouble(inputText1);
+            double lado2 = Double.parseDouble(inputText2);
+
+            if (lado1 <= 0 || lado2 <= 0) {
+                JOptionPane.showMessageDialog(this, "Los lados del romboide deben ser mayores que cero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Romboide romboide = new Romboide(lado1, lado2, "Romboide");
+
+            String resultado = Imprimir.imprimirPerimetro(romboide);
+
+            resultadoRomboide.setText(resultado);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese números válidos para los lados del romboide.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_calcularRomboideButtonActionPerformed
 
     private void inputTrapecio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTrapecio1ActionPerformed
@@ -976,7 +1063,35 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_inputTrapecio2ActionPerformed
 
     private void calcularTrapecioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularTrapecioButtonActionPerformed
-        // TODO add your handling code here:
+        String inputText1 = inputTrapecio1.getText().trim();
+        String inputText2 = inputTrapecio2.getText().trim();
+        String inputText3 = inputTrapecio3.getText().trim();
+        String inputText4 = inputTrapecio4.getText().trim();
+
+        if (inputText1.isEmpty() || inputText2.isEmpty() || inputText3.isEmpty() || inputText4.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese los cuatro lados del trapecio.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            double lado1 = Double.parseDouble(inputText1);
+            double lado2 = Double.parseDouble(inputText2);
+            double lado3 = Double.parseDouble(inputText3);
+            double lado4 = Double.parseDouble(inputText4);
+
+            if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0 || lado4 <= 0) {
+                JOptionPane.showMessageDialog(this, "Los lados del trapecio deben ser mayores que cero.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Trapecio trapecio = new Trapecio(lado1, lado2, lado3, lado4, "Trapecio");
+
+            String resultado = Imprimir.imprimirPerimetro(trapecio);
+
+            resultadoTrapecio.setText(resultado);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese números válidos para los lados del trapecio.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_calcularTrapecioButtonActionPerformed
 
     private void inputTrapecio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTrapecio3ActionPerformed
@@ -1000,7 +1115,34 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPoligono3ActionPerformed
 
     private void calcularPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularPoligonoActionPerformed
-        // TODO add your handling code here:
+        String inputLado = inputPoligono1.getText().trim();
+        String inputLados = inputPoligono2.getText().trim();
+        String inputNombrePolig = inputPoligono3.getText().trim();
+
+        if (inputLado.isEmpty() || inputLados.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Tiene que ingresar el número de lados, la longitud de un lado del polígono regular y el nombre del polígono regular.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            double longitudLado = Double.parseDouble(inputLado);
+            int numeroLados = Integer.parseInt(inputLados);
+
+            if (longitudLado <= 0 || numeroLados <= 2) {
+                JOptionPane.showMessageDialog(this, "La longitud del lado debe ser mayor que cero y el número de lados debe ser mayor que dos.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            PoligonoRegular poligonoRegular = new PoligonoRegular(numeroLados, longitudLado, inputNombrePolig);
+
+            String resultado = Imprimir.imprimirPerimetro(poligonoRegular);
+
+            resultadoPoligono.setText(resultado);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese números válidos para la longitud del lado y el número de lados.", "Error de entrada", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_calcularPoligonoActionPerformed
 
 
@@ -1061,34 +1203,59 @@ public class PerimetrosInterfazGrafica extends javax.swing.JFrame {
 
     private void atrasCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasCirculoActionPerformed
         dialogCirculo.setVisible(false);
+        inputCirculo.setText("");
+        resultadoCirculo.setText("Resultado");
     }//GEN-LAST:event_atrasCirculoActionPerformed
 
     private void atrasTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasTrianguloActionPerformed
         dialogTriangulo.setVisible(false);
+        inputTriangulo1.setText("");
+        inputTriangulo2.setText("");
+        inputTriangulo3.setText("");
+        resultadoTriangulo.setText("Resultado");
     }//GEN-LAST:event_atrasTrianguloActionPerformed
 
     private void atrasCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasCuadradoActionPerformed
         dialogCuadrado.setVisible(false);
+        inputCuadrado.setText("");
+        resultadoCuadrado.setText("Resultado");
     }//GEN-LAST:event_atrasCuadradoActionPerformed
 
     private void atrasRectanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasRectanguloActionPerformed
         dialogRectangulo.setVisible(false);
+        inputRectangulo1.setText("");
+        inputRectangulo2.setText("");
+        resultadoRectangulo.setText("Resultado");
     }//GEN-LAST:event_atrasRectanguloActionPerformed
 
     private void atrasRomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasRomboActionPerformed
         dialogRombo.setVisible(false);
+        inputRombo.setText("");
+        resultadoRombo.setText("Resultado");
     }//GEN-LAST:event_atrasRomboActionPerformed
 
     private void atrasRomboideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasRomboideActionPerformed
         dialogRomboide.setVisible(false);
+        inputRomboide1.setText("");
+        inputRomboide2.setText("");
+        resultadoRomboide.setText("Resultado");
     }//GEN-LAST:event_atrasRomboideActionPerformed
 
     private void atrasTrapecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasTrapecioActionPerformed
         dialogTrapecio.setVisible(false);
+        inputTrapecio1.setText("");
+        inputTrapecio2.setText("");
+        inputTrapecio3.setText("");
+        inputTrapecio4.setText("");
+        resultadoTrapecio.setText("Resultado");
     }//GEN-LAST:event_atrasTrapecioActionPerformed
 
     private void atrasPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasPoligonoActionPerformed
         dialogPoligonoRegular.setVisible(false);
+        inputPoligono1.setText("");
+        inputPoligono2.setText("");
+        inputPoligono3.setText("");
+        resultadoPoligono.setText("Resultado");
     }//GEN-LAST:event_atrasPoligonoActionPerformed
 
     /**

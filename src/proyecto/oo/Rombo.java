@@ -2,14 +2,10 @@ package proyecto.oo;
 
 public class Rombo extends Figura2D {
     private double lado;
-    private double diagonal1;
-    private double diagonal2;
 
-    public Rombo(double lado, double diagonal1, double diagonal2, String nombre) {
+    public Rombo(double lado, String nombre) {
         super(nombre);
         this.lado = lado;
-        this.diagonal1 = diagonal1;
-        this.diagonal2 = diagonal2;
     }
 
     @Override
