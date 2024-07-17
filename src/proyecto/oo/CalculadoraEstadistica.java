@@ -1,4 +1,3 @@
-
 package proyecto.oo;
 
 import java.util.Arrays;
@@ -9,6 +8,9 @@ public class CalculadoraEstadistica implements Estadistica {
 
     @Override
     public double calcularSumatoria(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         double sumatoria = 0;
         for (double valor : valores) {
             sumatoria += valor;
@@ -18,6 +20,9 @@ public class CalculadoraEstadistica implements Estadistica {
 
     @Override
     public double calcularModa(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         Map<Double, Integer> frecuencia = new HashMap<>();
         for (double valor : valores) {
             if (frecuencia.containsKey(valor)) {
@@ -42,12 +47,18 @@ public class CalculadoraEstadistica implements Estadistica {
 
     @Override
     public double calcularPromedio(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         double sumatoria = calcularSumatoria(valores);
         return sumatoria / valores.length;
     }
 
     @Override
     public double calcularMediana(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         Arrays.sort(valores);
         int n = valores.length;
         if (n % 2 == 0) {
@@ -59,6 +70,9 @@ public class CalculadoraEstadistica implements Estadistica {
 
     @Override
     public double calcularVarianza(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         double promedio = calcularPromedio(valores);
         double sumaDiferenciasCuadradas = 0;
         for (double valor : valores) {
@@ -69,6 +83,9 @@ public class CalculadoraEstadistica implements Estadistica {
 
     @Override
     public double calcularDesviacionEstandar(double[] valores) {
+        assert valores != null : "El array de valores no debe ser null";
+        assert valores.length > 0 : "El array de valores debe contener al menos un elemento";
+        
         double varianza = calcularVarianza(valores);
         return Math.sqrt(varianza);
     }

@@ -1,12 +1,9 @@
-
 package proyecto.oo;
 
 import java.util.Scanner;
 
-public class Areas {
-    
-    ///Círculo, Triángulo, Cuadrado, Rectángulo, Rombo, Trapecio, Romboide, Pentágono, Hexágono, Heptágono, Octágono, Eneágono, Decágono
-       
+public class Areas implements InterfazAreas {
+
     Scanner entrada = new Scanner(System.in);
     
     public static double radio;
@@ -19,8 +16,7 @@ public class Areas {
     public static double baseMenor;
     public static double area;
 
-    public void Areas() 
-    {
+    public void Areas() {
         this.radio = 0;
         this.lado = 0;
         this.base = 0;
@@ -103,351 +99,255 @@ public class Areas {
     public static double getArea() {
         return area;
     }
-    
-    public void AreaCirculo ()
-    {
+
+    @Override
+    public void AreaCirculo() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setRadio(0);
             setArea(0);
-            
             System.out.println("--Area Círculo --\n Ingrese el radio del círculo en cm: ");
             setRadio(entrada.nextDouble());
-            if (radio>0)
-            {
-                setArea(Math.PI *(radio * radio));
+            if (radio > 0) {
+                setArea(Math.PI * (radio * radio));
                 System.out.println("--Area Círculo --\n El área del círculo con radio " + getRadio() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa!");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa!");
             }
         }
     }
-    
-    public void AreaTriangulo () 
-    {
+
+    @Override
+    public void AreaTriangulo() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setBase(0);
             setAltura(0);
             setArea(0);
-            
             System.out.println("--Área Triángulo --\n Ingrese la base del triángulo en cm");
             setBase(entrada.nextDouble());
-            
             System.out.println("--Área Triángulo --\n Ingrese la altura del triángulo en cm");
             setAltura(entrada.nextDouble());
-            
-            if (base>0 && altura >0)
-            {
+            if (base > 0 && altura > 0) {
                 setArea(0.5 * base * altura);
-                System.out.println("El área del triángulo con base  " + getBase()+ "cm y la altura "+ getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                System.out.println("El área del triángulo con base  " + getBase() + "cm y la altura " + getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaCuadrado () 
-    {
+
+    @Override
+    public void AreaCuadrado() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Cuadrado --\n Ingrese el lado del cuadrado en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
-                setArea(lado*lado);
+            if (lado > 0) {
+                setArea(lado * lado);
                 System.out.println("El área del cuadrado con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaRectangulo ()        
-    {
+
+    @Override
+    public void AreaRectangulo() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setBase(0);
             setAltura(0);
             setArea(0);
-            
             System.out.println("--Área Rectángulo --\n Ingrese la base del rectángulo en cm");
             setBase(entrada.nextDouble());
-            
             System.out.println("--Área Rectángulo --\n Ingrese la altura del rectángulo en cm");
             setAltura(entrada.nextDouble());
-            
-            if (base>0 && altura >0)
-            {
+            if (base > 0 && altura > 0) {
                 setArea(base * altura);
-                System.out.println("El área del rectángulo con base  " + getBase()+ "cm y la altura "+ getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                System.out.println("El área del rectángulo con base  " + getBase() + "cm y la altura " + getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaRombo ()        
-    {
+
+    @Override
+    public void AreaRombo() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setDiagonalMayor(0);
             setDiagonalMenor(0);
             setArea(0);
-            
             System.out.println("--Área Rombo --\n Ingrese la diagonal mayor del rombo en cm");
             setDiagonalMayor(entrada.nextDouble());
-            
             System.out.println("--Área Rombo --\n Ingrese la diagonal menor del rombo en cm");
             setDiagonalMenor(entrada.nextDouble());
-            
-            if (diagonalMayor>0 && diagonalMenor >0)
-            {
+            if (diagonalMayor > 0 && diagonalMenor > 0) {
                 setArea((diagonalMayor * diagonalMenor) / 2);
-                System.out.println("El área del rombo con diagonal mayor de " + getDiagonalMayor()+ "cm y con diagonal menor de "+ getDiagonalMenor()+ "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                System.out.println("El área del rombo con diagonal mayor de " + getDiagonalMayor() + "cm y con diagonal menor de " + getDiagonalMenor() + "cm es de " + getArea() + " unidades cuadradas\n");
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaTrapecio ()        
-    {
+
+    @Override
+    public void AreaTrapecio() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setBaseMayor(0);
             setBaseMenor(0);
             setAltura(0);
             setArea(0);
-            
             System.out.println("--Área Trapecio --\n Ingrese la base mayor del trapecio en cm");
             setBaseMayor(entrada.nextDouble());
-            
             System.out.println("--Área Trapecio --\n Ingrese la base menor del trapecio en cm");
             setBaseMenor(entrada.nextDouble());
-            
             System.out.println("--Área Trapecio --\n Ingrese la altura del trapecio en cm");
             setAltura(entrada.nextDouble());
-            
-            if (baseMayor>0 && baseMenor >0 && altura > 0)
-            {
-                setArea(((baseMayor + baseMenor)* altura) / 2);
-                System.out.println("El área del trapecio con base mayor de " + getBaseMayor()+ "cm, con base menor de "+ getBaseMenor() + "cm y con altura de " + getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+            if (baseMayor > 0 && baseMenor > 0 && altura > 0) {
+                setArea(((baseMayor + baseMenor) * altura) / 2);
+                System.out.println("El área del trapecio con base mayor de " + getBaseMayor() + "cm, con base menor de " + getBaseMenor() + "cm y con altura de " + getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaRomboide ()
-    {
+
+    @Override
+    public void AreaRomboide() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setBase(0);
             setAltura(0);
             setArea(0);
-            
             System.out.println("--Área Romboide --\n Ingrese la base del romboide en cm");
             setBase(entrada.nextDouble());
-            
             System.out.println("--Área Romboide --\n Ingrese la altura del romboide en cm");
             setAltura(entrada.nextDouble());
-            
-            if (base>0 && altura >0)
-            {
+            if (base > 0 && altura > 0) {
                 setArea(base * altura);
-                System.out.println("El área del Romboide con base  " + getBase()+ "cm y la altura "+ getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                System.out.println("El área del Romboide con base  " + getBase() + "cm y la altura " + getAltura() + "cm es de " + getArea() + " unidades cuadradas\n");
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaPentagono () 
-    {
+
+    @Override
+    public void AreaPentagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Pentágono --\n Ingrese el lado del pentágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea((1.0 / 4.0) * Math.sqrt(5 * (5 + 2 * Math.sqrt(5))) * lado * lado);
                 System.out.println("El área del pentágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaHexagono () 
-    {
+
+    @Override
+    public void AreaHexagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Hexágono --\n Ingrese el lado del hexágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea((3 * Math.sqrt(3) / 2) * lado * lado);
                 System.out.println("El área del hexágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaHeptagono () ///
-    {
+
+    @Override
+    public void AreaHeptagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Heptágono --\n Ingrese el lado del heptágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea((7.0 / 4.0) * lado * lado * (1.0 / Math.tan(Math.PI / 7)));
                 System.out.println("El área del heptágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaOctagono () 
-    {
+
+    @Override
+    public void AreaOctagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Octágono --\n Ingrese el lado del octágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea(2 * (1 + Math.sqrt(2)) * lado * lado);
                 System.out.println("El área del octágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaEneagono () ////
-    {
+
+    @Override
+    public void AreaEneagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Eneágono --\n Ingrese el lado del eneágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea((9.0 / 4.0) * lado * lado * (1.0 / Math.tan(Math.PI / 9)));
                 System.out.println("El área del eneágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }
-    
-    public void AreaDecagono () 
-    {
+
+    @Override
+    public void AreaDecagono() {
         boolean continuar = true;
-        
-        while(continuar)
-        {
+        while (continuar) {
             setLado(0);
             setArea(0);
-            
             System.out.println("--Área Decágono --\n Ingrese el lado del decágono en cm");
             setLado(entrada.nextDouble());
-            
-            if (lado>0)
-            {
+            if (lado > 0) {
                 setArea((5.0 / 2.0) * lado * lado * Math.sqrt(5 + 2 * Math.sqrt(5)));
                 System.out.println("El área del decágono con lado de " + getLado() + "cm es de " + getArea() + " unidades cuadradas\n");
-                continuar=false;
-            }
-            else
-            {
-                System.out.println("La longitud no puede ser nula o negativa");  
+                continuar = false;
+            } else {
+                System.out.println("La longitud no puede ser nula o negativa");
             }
         }
     }

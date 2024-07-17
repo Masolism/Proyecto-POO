@@ -89,6 +89,8 @@ public class MenuEstadistica {
     private static double[] pedirValores(Scanner scanner) {
         System.out.print("Ingrese el número de valores: ");
         int n = scanner.nextInt();
+        assert n > 0 : "El número de valores debe ser mayor que cero";
+        
         double[] valores = new double[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Ingrese el valor " + (i + 1) + ": ");
